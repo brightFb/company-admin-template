@@ -74,5 +74,37 @@ export const generatedRoutes: GeneratedRoute[] = [
       constant: true,
       hideInMenu: true
     }
+  },
+  {
+    name: 'traffic',
+    path: '/traffic',
+    component: 'layout.base',
+    meta: {
+      title: '话务管理',
+      order: 2,
+      i18nKey: 'route.traffic'
+    },
+    children: [
+      {
+        name: 'traffic_direct',
+        path: '/traffic/direct',
+        component: 'view.traffic_direct',
+        meta: {
+          title: '直拨线路管理',
+          order: 1,
+          i18nKey: 'route.traffic_direct'
+        }
+      },
+      {
+        name: 'traffic_recall',
+        path: '/traffic/recall',
+        component: 'view.traffic_recall',
+        meta: {
+          title: '回拨线路管理',
+          order: 2,
+          i18nKey: 'route.traffic_recall'
+        }
+      }
+    ]
   }
 ];

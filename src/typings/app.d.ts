@@ -474,7 +474,7 @@ declare namespace App {
       };
       form: {
         required: string;
-        userName: FormMsg;
+        username: FormMsg;
         phone: FormMsg;
         pwd: FormMsg;
         confirmPwd: FormMsg;

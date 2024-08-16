@@ -9,7 +9,10 @@ import type { RequestInstanceState } from './type';
 
 const isHttpProxy = import.meta.env.DEV && import.meta.env.VITE_HTTP_PROXY === 'Y';
 const { baseURL, otherBaseURL } = getServiceBaseURL(import.meta.env, isHttpProxy);
-
+function handleLogout() {
+  const authStore = useAuthStore();
+  authStore.resetStore();
+}
 export const request = createFlatRequest<App.Service.Response, RequestInstanceState>(
   {
     baseURL,
@@ -34,12 +37,7 @@ export const request = createFlatRequest<App.Service.Response, RequestInstanceSt
       return String(response.data.code) === import.meta.env.VITE_SERVICE_SUCCESS_CODE;
     },
     async onBackendFail(response, instance) {
-      const authStore = useAuthStore();
       const responseCode = String(response.data.code);
-
-      function handleLogout() {
-        authStore.resetStore();
-      }
 
       function logoutAndCleanup() {
         handleLogout();
@@ -101,16 +99,23 @@ export const request = createFlatRequest<App.Service.Response, RequestInstanceSt
       return response.data.data;
     },
     onError(error) {
-      // when the request is fail, you can show error message
+      const { data }: any = error.response;
+      if (data && data.code) {
+        const responseCode = String(data.code);
+        const logoutCodes = import.meta.env.VITE_SERVICE_LOGOUT_CODES?.split(',') || [];
+        if (logoutCodes.includes(responseCode)) handleLogout();
+        window.$message?.error(data.msg || '请求错误');
+        return;
+      }
 
-      let message = error.message;
-      let backendErrorCode = '';
+      const message = error.message;
+      const backendErrorCode = '';
 
       // get backend error message and code
-      if (error.code === BACKEND_ERROR_CODE) {
-        message = error.response?.data?.msg || message;
-        backendErrorCode = String(error.response?.data?.code || '');
-      }
+      // if (error.code === BACKEND_ERROR_CODE) {
+      //   message = error.response?.data?.msg || message;
+      //   backendErrorCode = String(error.response?.data?.code || '');
+      // }
 
       // the error message is displayed in the modal
       const modalLogoutCodes = import.meta.env.VITE_SERVICE_MODAL_LOGOUT_CODES?.split(',') || [];

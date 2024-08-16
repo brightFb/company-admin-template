@@ -35,5 +35,7 @@ declare namespace StorageType {
       layout: UnionKey.ThemeLayoutMode;
       siderCollapse: boolean;
     };
+    /** 存储用户名 */
+    username: string;
   }
 }
