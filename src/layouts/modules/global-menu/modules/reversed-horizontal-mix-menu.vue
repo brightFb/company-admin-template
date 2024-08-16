@@ -28,10 +28,10 @@ const {
 const { routerPushByKeyWithMetaQuery } = useRouterPush();
 
 const selectedKey = computed(() => {
-  const { hideInMenu, activeMenu } = route.meta;
+  const { hide, activeMenu } = route.meta;
   const name = route.name as string;
 
-  const routeName = (hideInMenu ? activeMenu : name) || name;
+  const routeName = (hide ? activeMenu : name) || name;
 
   return routeName;
 });

@@ -1,6 +1,5 @@
 import type { RouteLocationNormalizedLoaded, RouteRecordRaw, _RouteRecordBase } from 'vue-router';
 import type { ElegantConstRoute, LastLevelRouteKey, RouteKey, RouteMap } from '@elegant-router/types';
-import { $t } from '@/locales';
 import { useSvgIcon } from '@/hooks/common/icon';
 
 /**
@@ -72,10 +71,10 @@ export function getGlobalMenusByAuthRoutes(routes: ElegantConstRoute[]) {
   const menus: App.Global.Menu[] = [];
 
   routes.forEach(route => {
-    if (!route.meta?.hideInMenu) {
+    if (!route.meta?.hide) {
       const menu = getGlobalMenuByBaseRoute(route);
 
-      if (route.children?.some(child => !child.meta?.hideInMenu)) {
+      if (route.children?.some(child => !child.meta?.hide)) {
         menu.children = getGlobalMenusByAuthRoutes(route.children);
       }
 
@@ -95,9 +94,9 @@ export function updateLocaleOfGlobalMenus(menus: App.Global.Menu[]) {
   const result: App.Global.Menu[] = [];
 
   menus.forEach(menu => {
-    const { i18nKey, label, children } = menu;
+    const { label, children } = menu;
 
-    const newLabel = i18nKey ? $t(i18nKey) : label;
+    const newLabel = label;
 
     const newMenu: App.Global.Menu = {
       ...menu,
@@ -123,14 +122,13 @@ function getGlobalMenuByBaseRoute(route: RouteLocationNormalizedLoaded | Elegant
   const { SvgIconVNode } = useSvgIcon();
 
   const { name, path } = route;
-  const { title, i18nKey, icon = import.meta.env.VITE_MENU_ICON, localIcon, iconFontSize } = route.meta ?? {};
+  const { title, icon = import.meta.env.VITE_MENU_ICON, localIcon, iconFontSize } = route.meta ?? {};
 
-  const label = i18nKey ? $t(i18nKey) : title!;
+  const label = title!;
 
   const menu: App.Global.Menu = {
     key: name as string,
     label,
-    i18nKey,
     routeKey: name as RouteKey,
     routePath: path as RouteMap[RouteKey],
     icon: SvgIconVNode({ icon, localIcon, fontSize: iconFontSize || 20 })

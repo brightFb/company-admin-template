@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import { useThemeStore } from '@/store/modules/theme';
-import { $t } from '@/locales';
 
 defineOptions({ name: 'SearchResult' });
 
@@ -43,9 +42,7 @@ function handleTo() {
           @mouseenter="handleMouseEnter(item)"
         >
           <component :is="item.icon" />
-          <span class="ml-5px flex-1">
-            {{ (item.i18nKey && $t(item.i18nKey)) || item.label }}
-          </span>
+          <span class="ml-5px flex-1">item.label</span>
           <icon-ant-design-enter-outlined class="icon mr-3px p-2px text-20px" />
         </div>
       </template>

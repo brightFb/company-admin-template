@@ -98,6 +98,9 @@ export const useTabStore = defineStore(SetupStoreId.Tab, () => {
   async function removeTab(tabId: string) {
     const isRemoveActiveTab = activeTabId.value === tabId;
     const updatedTabs = filterTabsById(tabId, tabs.value);
+    console.log(111, updatedTabs);
+    console.log(111, tabId);
+    console.log(111, tabs.value);
 
     function update() {
       tabs.value = updatedTabs;

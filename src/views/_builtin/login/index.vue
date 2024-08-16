@@ -3,7 +3,7 @@ import { computed } from 'vue';
 import type { Component } from 'vue';
 import { getPaletteColorByNumber, mixColor } from '@sa/color';
 import { $t } from '@/locales';
-import { useAppStore } from '@/store/modules/app';
+// import { useAppStore } from '@/store/modules/app';
 import { useThemeStore } from '@/store/modules/theme';
 import { loginModuleRecord } from '@/constants/app';
 import PwdLogin from './modules/pwd-login.vue';
@@ -19,7 +19,7 @@ interface Props {
 
 const props = defineProps<Props>();
 
-const appStore = useAppStore();
+// const appStore = useAppStore();
 const themeStore = useThemeStore();
 
 interface LoginModule {
@@ -55,10 +55,11 @@ const bgColor = computed(() => {
     <WaveBg :theme-color="bgThemeColor" />
     <NCard :bordered="false" class="relative z-4 w-auto rd-12px">
       <div class="w-400px lt-sm:w-300px">
-        <header class="flex-y-center justify-between">
-          <SystemLogo class="text-64px text-primary lt-sm:text-48px" />
+        <header class="flex-center">
+          <!-- <SystemLogo class="text-64px text-primary lt-sm:text-48px" /> -->
           <h3 class="text-28px text-primary font-500 lt-sm:text-22px">{{ $t('system.title') }}</h3>
-          <div class="i-flex-col">
+          <!--
+ <div class="i-flex-col">
             <ThemeSchemaSwitch
               :theme-schema="themeStore.themeScheme"
               :show-tooltip="false"
@@ -72,9 +73,10 @@ const bgColor = computed(() => {
               @change-lang="appStore.changeLocale"
             />
           </div>
+-->
         </header>
-        <main class="pt-24px">
-          <h3 class="text-18px text-primary font-medium">{{ $t(activeModule.label) }}</h3>
+        <main>
+          <!-- <h3 class="text-18px text-primary font-medium">{{ $t(activeModule.label) }}</h3> -->
           <div class="pt-24px">
             <Transition :name="themeStore.page.animateMode" mode="out-in" appear>
               <component :is="activeModule.component" />

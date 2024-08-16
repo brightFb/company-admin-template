@@ -395,7 +395,7 @@ declare namespace App {
           resetSuccessMsg: string;
         };
       };
-      route: Record<I18nRouteKey, string>;
+      route: Record<string, string>;
       page: {
         login: {
           common: {

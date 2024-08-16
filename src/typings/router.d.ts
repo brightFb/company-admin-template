@@ -49,7 +49,7 @@ declare module 'vue-router' {
     /** The outer link of the route */
     href?: string | null;
     /** Whether to hide the route in the menu */
-    hideInMenu?: boolean | null;
+    hide?: boolean | null;
     /**
      * The menu key will be activated when entering the route
      *

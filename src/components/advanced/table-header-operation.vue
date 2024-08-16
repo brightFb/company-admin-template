@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { $t } from '@/locales';
-
 defineOptions({
   name: 'TableHeaderOperation'
 });
@@ -46,7 +44,7 @@ function refresh() {
         <template #icon>
           <icon-ic-round-plus class="text-icon" />
         </template>
-        {{ $t('common.add') }}
+        common.add
       </NButton>
       <NPopconfirm @positive-click="batchDelete">
         <template #trigger>
@@ -54,17 +52,17 @@ function refresh() {
             <template #icon>
               <icon-ic-round-delete class="text-icon" />
             </template>
-            {{ $t('common.batchDelete') }}
+            common.batchDelete
           </NButton>
         </template>
-        {{ $t('common.confirmDelete') }}
+        common.confirmDelete
       </NPopconfirm>
     </slot>
     <NButton size="small" @click="refresh">
       <template #icon>
         <icon-mdi-refresh class="text-icon" :class="{ 'animate-spin': loading }" />
       </template>
-      {{ $t('common.refresh') }}
+      common.refresh
     </NButton>
     <TableColumnSetting v-model:columns="columns" />
     <slot name="suffix"></slot>

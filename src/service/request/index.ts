@@ -23,7 +23,7 @@ export const request = createFlatRequest<App.Service.Response, RequestInstanceSt
 
       // set token
       const token = localStg.get('token');
-      const Authorization = token ? `Bearer ${token}` : null;
+      const Authorization = token ? `${token}` : null;
       Object.assign(headers, { Authorization });
 
       return config;
@@ -123,7 +123,6 @@ export const request = createFlatRequest<App.Service.Response, RequestInstanceSt
       if (expiredTokenCodes.includes(backendErrorCode)) {
         return;
       }
-
       showErrorMsg(request.state, message);
     }
   }

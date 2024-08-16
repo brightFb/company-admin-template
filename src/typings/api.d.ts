@@ -57,6 +57,8 @@ declare namespace Api {
     interface LoginToken {
       token: string;
       refreshToken: string;
+      nickname: string;
+      username: string;
     }
 
     interface UserInfo {
@@ -83,5 +85,7 @@ declare namespace Api {
       routes: MenuRoute[];
       home: import('@elegant-router/types').LastLevelRouteKey;
     }
+
+    type Routes = MenuRoute[];
   }
 }

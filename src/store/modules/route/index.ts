@@ -8,7 +8,7 @@ import { router } from '@/router';
 import { createStaticRoutes, getAuthVueRoutes } from '@/router/routes';
 import { ROOT_ROUTE } from '@/router/routes/builtin';
 import { getRouteName, getRoutePath } from '@/router/elegant/transform';
-import { fetchGetConstantRoutes, fetchGetUserRoutes, fetchIsRouteExist } from '@/service/api';
+import { fetchGetUserRoutes, fetchIsRouteExist } from '@/service/api';
 import { useAppStore } from '../app';
 import { useAuthStore } from '../auth';
 import { useTabStore } from '../tab';
@@ -201,14 +201,14 @@ export const useRouteStore = defineStore(SetupStoreId.Route, () => {
     if (authRouteMode.value === 'static') {
       addConstantRoutes(staticRoute.constantRoutes);
     } else {
-      const { data, error } = await fetchGetConstantRoutes();
+      addConstantRoutes(staticRoute.constantRoutes);
+      // const { data, error } = await ();
 
-      if (!error) {
-        addConstantRoutes(data);
-      } else {
-        // if fetch constant routes failed, use static constant routes
-        addConstantRoutes(staticRoute.constantRoutes);
-      }
+      // if (!error) {
+      //   addConstantRoutes(data);
+      // } else {
+      //   // if fetch constant routes failed, use static constant routes
+      // }
     }
 
     handleConstantAndAuthRoutes();
@@ -216,7 +216,7 @@ export const useRouteStore = defineStore(SetupStoreId.Route, () => {
     setIsInitConstantRoute(true);
   }
 
-  /** Init auth route */
+  /** Init auth route 登录后调用的入口 */
   async function initAuthRoute() {
     if (authRouteMode.value === 'static') {
       initStaticAuthRoute();
@@ -249,15 +249,14 @@ export const useRouteStore = defineStore(SetupStoreId.Route, () => {
     const { data, error } = await fetchGetUserRoutes();
 
     if (!error) {
-      const { routes, home } = data;
-
+      const routes = data;
       addAuthRoutes(routes);
 
       handleConstantAndAuthRoutes();
 
-      setRouteHome(home);
+      setRouteHome('dashboard');
 
-      handleUpdateRootRouteRedirect(home);
+      handleUpdateRootRouteRedirect('dashboard');
 
       setIsInitAuthRoute(true);
     } else {

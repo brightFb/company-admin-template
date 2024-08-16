@@ -14,7 +14,7 @@ export const generatedRoutes: GeneratedRoute[] = [
       title: '403',
       i18nKey: 'route.403',
       constant: true,
-      hideInMenu: true
+      hide: true
     }
   },
   {
@@ -25,7 +25,7 @@ export const generatedRoutes: GeneratedRoute[] = [
       title: '404',
       i18nKey: 'route.404',
       constant: true,
-      hideInMenu: true
+      hide: true
     }
   },
   {
@@ -36,18 +36,17 @@ export const generatedRoutes: GeneratedRoute[] = [
       title: '500',
       i18nKey: 'route.500',
       constant: true,
-      hideInMenu: true
+      hide: true
     }
   },
   {
-    name: 'home',
-    path: '/home',
-    component: 'layout.base$view.home',
+    name: 'dashboard',
+    path: '/dashboard',
+    component: 'layout.base$view.dashboard',
     meta: {
-      title: 'home',
-      i18nKey: 'route.home',
-      icon: 'mdi:monitor-dashboard',
-      order: 1
+      title: '工作台',
+      i18nKey: 'route.dashboard',
+      icon: 'charm:apps'
     }
   },
   {
@@ -59,7 +58,7 @@ export const generatedRoutes: GeneratedRoute[] = [
       title: 'iframe-page',
       i18nKey: 'route.iframe-page',
       constant: true,
-      hideInMenu: true,
+      hide: true,
       keepAlive: true
     }
   },
@@ -72,7 +71,34 @@ export const generatedRoutes: GeneratedRoute[] = [
       title: 'login',
       i18nKey: 'route.login',
       constant: true,
-      hideInMenu: true
+      hide: true
     }
+  },
+  {
+    name: 'standing',
+    path: '/standing',
+    component: 'layout.base',
+    meta: {
+      title: '落地网关',
+      icon: "tabler:align-box-left-bottom"
+    },
+    children: [
+      {
+        name: 'standing_list',
+        path: '/standing/list',
+        component: 'view.standing_list',
+        meta: {
+          title: '落地网关列表',
+        }
+      },
+      {
+        name: 'standing_manage',
+        path: '/standing/manage',
+        component: 'view.standing_manage',
+        meta: {
+          title: '落地号码管理',
+        }
+      }
+    ]
   }
 ];
