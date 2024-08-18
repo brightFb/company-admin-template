@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="h-full border-rd-10px bg-white shadow-sm dark:bg-black">
+    <div class="box-border h-full border-rd-10px bg-white p-10px shadow dark:bg-dark dark:shadow-coolGray-5">
       <slot></slot>
     </div>
   </div>

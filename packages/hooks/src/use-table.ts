@@ -97,6 +97,7 @@ export default function useHookTable<A extends ApiFn, T, C>(config: TableConfig<
     const response = await apiFn(formattedParams);
 
     const transformed = transformer(response as Awaited<ReturnType<A>>);
+    console.log(111, transformed);
 
     data.value = transformed.data;
 

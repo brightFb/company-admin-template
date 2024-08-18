@@ -24,7 +24,11 @@ declare namespace NaiveUI {
 
   type TableColumnWithKey<T> = SetTableColumnKey<DataTableBaseColumn<T>, T> | SetTableColumnKey<TableColumnGroup<T>, T>;
 
-  type TableColumn<T> = TableColumnWithKey<T> | DataTableSelectionColumn<T> | DataTableExpandColumn<T>;
+  type TableColumn<T> =
+    | TableColumnWithKey<T>
+    | DataTableSelectionColumn<T>
+    | DataTableExpandColumn<T>
+    | DataTableBaseColumn<T>;
 
   type TableApiFn<T = any, R = Api.Common.CommonSearchParams> = (
     params: R
@@ -36,7 +40,7 @@ declare namespace NaiveUI {
    * - add: add table item
    * - edit: edit table item
    */
-  type TableOperateType = 'add' | 'edit';
+  type TableOperateType = 'add' | 'edit' | (string & {});
 
   type GetTableData<A extends TableApiFn> = A extends TableApiFn<infer T> ? T : never;
 

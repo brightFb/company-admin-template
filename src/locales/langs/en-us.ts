@@ -154,7 +154,10 @@ const local: App.I18n.Schema = {
     404: 'Page Not Found',
     500: 'Server Error',
     'iframe-page': 'Iframe',
-    home: 'Home'
+    home: 'Home',
+    traffic: '话务管理',
+    traffic_direct: '直拨线路管理',
+    traffic_recall: '回拨线路管理'
   },
   page: {
     login: {

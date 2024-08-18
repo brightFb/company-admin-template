@@ -1,13 +1,10 @@
 import { request } from '../request';
 
 /** 直拨线路列表 */
-export function fetchDirectNumberPool() {
+export function fetchDirectNumberPool(params: Record<string, unknown>) {
   return request({
-    url: '/direct_number_pool',
+    url: '/task',
     method: 'get',
-    params: {
-      page: 1,
-      limit: 30
-    }
+    params
   });
 }
