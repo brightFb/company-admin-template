@@ -84,4 +84,17 @@ declare namespace Api {
       home: import('@elegant-router/types').LastLevelRouteKey;
     }
   }
+
+  /**
+   * namespace task
+   *
+   * backend api module: "task"
+   */
+  namespace Landing {
+    interface ListSearchParams {
+      title: string | null;
+      page: number;
+      limit: number;
+    }
+  }
 }

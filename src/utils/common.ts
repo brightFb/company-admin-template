@@ -1,4 +1,6 @@
+import type { App } from 'vue';
 import { $t } from '@/locales';
+import { themeNaiveUIConfig } from '@/constants/app';
 
 /**
  * Transform record to option
@@ -55,4 +57,8 @@ export function toggleHtmlClass(className: string) {
     add,
     remove
   };
+}
+//= ========================================================================//
+export function registerGlobalParams(app: App) {
+  app.config.globalProperties.$themeNaiveUIConfig = themeNaiveUIConfig;
 }

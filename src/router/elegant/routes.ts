@@ -40,6 +40,36 @@ export const generatedRoutes: GeneratedRoute[] = [
     }
   },
   {
+    name: 'docking',
+    path: '/docking',
+    component: 'layout.base',
+    meta: {
+      title: '对接网关',
+      i18nKey: 'route.docking',
+      order: 3
+    },
+    children: [
+      {
+        name: 'docking_list',
+        path: '/docking/list',
+        component: 'view.docking_list',
+        meta: {
+          title: '对接网关列表',
+          i18nKey: 'route.docking_list'
+        }
+      },
+      {
+        name: 'docking_number',
+        path: '/docking/number',
+        component: 'view.docking_number',
+        meta: {
+          title: '对接号码池管理',
+          i18nKey: 'route.docking_number'
+        }
+      }
+    ]
+  },
+  {
     name: 'home',
     path: '/home',
     component: 'layout.base$view.home',
@@ -64,6 +94,36 @@ export const generatedRoutes: GeneratedRoute[] = [
     }
   },
   {
+    name: 'landing',
+    path: '/landing',
+    component: 'layout.base',
+    meta: {
+      title: '落地网关',
+      i18nKey: 'route.landing',
+      order: 2
+    },
+    children: [
+      {
+        name: 'landing_list',
+        path: '/landing/list',
+        component: 'view.landing_list',
+        meta: {
+          title: 'landing_list',
+          i18nKey: 'route.landing_list'
+        }
+      },
+      {
+        name: 'landing_number',
+        path: '/landing/number',
+        component: 'view.landing_number',
+        meta: {
+          title: '落地号码管理',
+          i18nKey: 'route.landing_number'
+        }
+      }
+    ]
+  },
+  {
     name: 'login',
     path: '/login/:module(pwd-login|code-login|register|reset-pwd|bind-wechat)?',
     component: 'layout.blank$view.login',
@@ -76,33 +136,22 @@ export const generatedRoutes: GeneratedRoute[] = [
     }
   },
   {
-    name: 'traffic',
-    path: '/traffic',
+    name: 'statistics',
+    path: '/statistics',
     component: 'layout.base',
     meta: {
-      title: '话务管理',
-      order: 2,
-      i18nKey: 'route.traffic'
+      title: '查询统计',
+      i18nKey: 'route.statistics',
+      order: 4
     },
     children: [
       {
-        name: 'traffic_direct',
-        path: '/traffic/direct',
-        component: 'view.traffic_direct',
+        name: 'statistics_records',
+        path: '/statistics/records',
+        component: 'view.statistics_records',
         meta: {
-          title: '直拨线路管理',
-          order: 1,
-          i18nKey: 'route.traffic_direct'
-        }
-      },
-      {
-        name: 'traffic_recall',
-        path: '/traffic/recall',
-        component: 'view.traffic_recall',
-        meta: {
-          title: '回拨线路管理',
-          order: 2,
-          i18nKey: 'route.traffic_recall'
+          title: '话单查询',
+          i18nKey: 'route.statistics_records'
         }
       }
     ]

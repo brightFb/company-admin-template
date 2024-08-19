@@ -1,6 +1,6 @@
 const local: App.I18n.Schema = {
   system: {
-    title: 'SoybeanAdmin',
+    title: '选号平台系统',
     updateTitle: 'System Version Update Notification',
     updateContent: 'A new version of the system has been detected. Do you want to refresh the page immediately?',
     updateConfirm: 'Refresh immediately',
@@ -155,9 +155,14 @@ const local: App.I18n.Schema = {
     500: 'Server Error',
     'iframe-page': 'Iframe',
     home: 'Home',
-    traffic: '话务管理',
-    traffic_direct: '直拨线路管理',
-    traffic_recall: '回拨线路管理'
+    landing: '落地网关',
+    landing_list: '落地网关列表',
+    landing_number: '落地号码管理',
+    docking: '对接网关',
+    docking_list: '对接网关列表',
+    docking_number: '对接号码池管理',
+    statistics: '查询统计',
+    statistics_records: '话单查询'
   },
   page: {
     login: {

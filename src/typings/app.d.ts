@@ -157,6 +157,28 @@ declare namespace App {
       colors: ThemeTokenColor & { [key: string]: string };
       boxShadow: ThemeSettingTokenBoxShadow & { [key: string]: string };
     };
+
+    /** ui通用配置 */
+    type Size = 'small' | 'medium' | 'large' | 'tiny';
+    interface UIList {
+      size: Size;
+      tableSize: Size;
+      tableActionSize: Size;
+      normalWidth: string;
+      datePickerWidth: string;
+      multipleSelectWidth: string;
+      multipleSelectShrinkWidth: string;
+      mergeWidth: string;
+    }
+    interface UIForm {
+      size: Size;
+      otherButtonSize: Size;
+      submitButtonSize: Size;
+    }
+    interface NaiveUIConfig {
+      list: UIList;
+      form: UIForm;
+    }
   }
 
   /** Global namespace */

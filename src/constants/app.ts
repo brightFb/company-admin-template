@@ -54,3 +54,23 @@ export const themePageAnimationModeRecord: Record<UnionKey.ThemePageAnimateMode,
 };
 
 export const themePageAnimationModeOptions = transformRecordToOption(themePageAnimationModeRecord);
+
+export const themeNaiveUIConfig = {
+  //= ====================================列表相关配置====================================//
+  list: {
+    size: 'small', // ---------------列表搜索部分按钮以及筛选项大小
+    tableSize: 'small', // ---------------表格大小
+    tableActionSize: 'tiny', // ---------------表格操作按钮大小
+    normalWidth: '180px', // ---------------正常筛选项宽度
+    datePickerWidth: '250px', // ---------------搜索时间选择的宽度
+    multipleSelectWidth: '300px', // ---------------多选下拉框宽度
+    multipleSelectShrinkWidth: '200px', // ---------------多选下拉收起来的宽度
+    mergeWidth: '120px' // ---------------两个元素组合的元素宽度
+  },
+  //= ====================================表单相关配置====================================//
+  form: {
+    size: 'small', // ---------------form表单的大小
+    otherButtonSize: 'small', // ---------------其它按钮大小
+    submitButtonSize: 'small' // ---------------提交按钮大小
+  }
+};

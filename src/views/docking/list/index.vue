@@ -1,13 +1,11 @@
 <script setup lang="ts">
 import { onMounted } from 'vue';
-import { NDataTable } from 'naive-ui';
+import { NDataTable, NSpace } from 'naive-ui';
 import dayjs from 'dayjs';
 import MainCard from '@/components/custom/main-card.vue';
 import { fetchDirectNumberPool } from '@/service/api';
 import { useTable } from '@/hooks/common/table';
-import { useAppStore } from '@/store/modules/app';
 
-const appStore = useAppStore();
 const { columns, data, loading, mobilePagination } = useTable({
   apiFn: fetchDirectNumberPool,
   showTotal: true,
@@ -57,17 +55,17 @@ onMounted(async () => {});
 
 <template>
   <MainCard>
-    <NDataTable
-      :columns="columns"
-      :data="data"
-      size="small"
-      :flex-height="!appStore.isMobile"
-      :scroll-x="730"
-      :loading="loading"
-      remote
-      :row-key="row => row.id"
-      :pagination="mobilePagination"
-      class="sm:h-full"
-    />
+    <NSpace vertical>
+      <NDataTable
+        :columns="columns"
+        :data="data"
+        size="small"
+        :scroll-x="730"
+        :loading="loading"
+        remote
+        :row-key="row => row.id"
+        :pagination="mobilePagination"
+      />
+    </NSpace>
   </MainCard>
 </template>

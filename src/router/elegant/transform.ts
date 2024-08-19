@@ -166,12 +166,17 @@ const routeMap: RouteMap = {
   "403": "/403",
   "404": "/404",
   "500": "/500",
+  "docking": "/docking",
+  "docking_list": "/docking/list",
+  "docking_number": "/docking/number",
   "home": "/home",
   "iframe-page": "/iframe-page/:url",
+  "landing": "/landing",
+  "landing_list": "/landing/list",
+  "landing_number": "/landing/number",
   "login": "/login/:module(pwd-login|code-login|register|reset-pwd|bind-wechat)?",
-  "traffic": "/traffic",
-  "traffic_direct": "/traffic/direct",
-  "traffic_recall": "/traffic/recall"
+  "statistics": "/statistics",
+  "statistics_records": "/statistics/records"
 };
 
 /**

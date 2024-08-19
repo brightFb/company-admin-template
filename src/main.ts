@@ -4,6 +4,8 @@ import { setupAppVersionNotification, setupDayjs, setupIconifyOffline, setupLoad
 import { setupStore } from './store';
 import { setupRouter } from './router';
 import { setupI18n } from './locales';
+import { registerGlobalParams } from './utils/common';
+import directivesIndex from './directives';
 import App from './App.vue';
 
 async function setupApp() {
@@ -18,6 +20,10 @@ async function setupApp() {
   const app = createApp(App);
 
   setupStore(app);
+
+  registerGlobalParams(app);
+
+  app.use(directivesIndex);
 
   await setupRouter(app);
 
