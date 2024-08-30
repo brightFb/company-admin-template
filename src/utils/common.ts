@@ -60,5 +60,5 @@ export function toggleHtmlClass(className: string) {
 }
 //= ========================================================================//
 export function registerGlobalParams(app: App) {
-  app.config.globalProperties.$themeNaiveUIConfig = themeNaiveUIConfig;
+  app.config.globalProperties.$themeNaiveUIConfig = themeNaiveUIConfig as App.Theme.NaiveUIConfig;
 }

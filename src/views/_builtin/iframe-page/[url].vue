@@ -7,13 +7,9 @@ interface Props {
 
 defineProps<Props>();
 
-onMounted(() => {
-  console.log('mounted');
-});
+onMounted(() => {});
 
-onActivated(() => {
-  console.log('activated');
-});
+onActivated(() => {});
 </script>
 
 <template>
